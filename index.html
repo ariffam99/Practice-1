@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Farmer Weather Alert</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 🌐 ADVANCED NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">🌾 Farmer Alerts</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Weather</a></li>
+      <li><a href="#">Alerts</a></li>
+
+      <!-- Language Dropdown -->
+      <li class="dropdown">
+        <a href="#">🌐 Language ⌄</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">English</a></li>
+          <li><a href="#">Hindi</a></li>
+          <li><a href="#">Swahili</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <!-- Right-side controls -->
+    <div class="nav-right">
+      <!-- Dark mode toggle -->
+      <button id="darkToggle" title="Toggle dark mode">🌙</button>
+
+      <!-- Profile -->
+      <a href="#" class="profile-icon" title="Login/Profile">👤</a>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sample Content -->
+  <section class="content fade-in">
+    <h1>Welcome to the Farmer Weather Alert System</h1>
+    <p>Get real-time weather forecasts and alerts for your region in your language.</p>
+  </section>
+
+  <!-- 🌐 Weather Search Bar -->
+  <section class="search-section fade-in">
+    <h2>🔍 Weather Search</h2>
+    <form id="weatherForm">
+      <input type="text" id="locationInput" placeholder="Enter your location (e.g., Delhi, Nairobi)" required />
+      <button type="submit">Check Weather</button>
+    </form>
+    <div id="weatherResult" class="weather-result"></div>
+  </section>
+
+
+  <script src="advance.js"></script>
+
+
+<div class="section">
+    <h2>🌾 Crop Market Rates</h2>
+
+    <!-- Weather Selection -->
+    <label for="weather">Select Weather Condition:</label>
+    <select id="weather" onchange="showAdvisory()">
+      <option value="normal">Normal Weather</option>
+      <option value="rain">Rainy Season</option>
+      <option value="summer">Summer Season</option>
+      <option value="winter">Winter Season</option>
+    </select>
+
+    <!-- Rates Table -->
+    <table>
+      <tr>
+        <th>Crop</th>
+        <th>Today's Price (₹/Quintal)</th>
+        <th>Yesterday's Price (₹/Quintal)</th>
+      </tr>
+      <tr>
+        <td>Wheat</td>
+        <td>2200</td>
+        <td>2150</td>
+      </tr>
+      <tr>
+        <td>Paddy</td>
+        <td>1850</td>
+        <td>1800</td>
+      </tr>
+      <tr>
+        <td>Maize</td>
+        <td>1650</td>
+        <td>1600</td>
+      </tr>
+      <tr>
+        <td>Soybean</td>
+        <td>4800</td>
+        <td>4700</td>
+      </tr>
+      <tr>
+        <td>Chickpea</td>
+        <td>5100</td>
+        <td>5000</td>
+      </tr>
+    </table>
+
+    <!-- Advisory -->
+    <div class="advisory" id="advisoryBox">
+      🌤️ Normal Weather: Farmers are advised to store crops properly and maintain stock safely.
+    </div>
+  </div>
+<script>
+    function showAdvisory() {
+      const weather = document.getElementById("weather").value;
+      const advisoryBox = document.getElementById("advisoryBox");
+
+      let message = "";
+
+      if(weather === "rain") {
+        message = "🌧️ Rainy Season: Farmers should cover and store crops in dry places to avoid damage.";
+      } else if(weather === "summer") {
+        message = "☀️ Summer Season: Keep grains in cool and ventilated storage to prevent spoilage.";
+      } else if(weather === "winter") {
+        message = "❄️ Winter Season: Best time to stock wheat and chickpea safely for longer use.";
+      } else {
+        message = "🌤️ Normal Weather: Farmers are advised to store crops properly and maintain stock safely.";
+      }
+
+      advisoryBox.innerHTML = message;
+    }
+  </script>
+
+</body>
+
+</html>
